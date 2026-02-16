@@ -30,14 +30,6 @@
 - [ ] Create a **Windows Restore Point** → Search: *"Create a restore point"* → Create
 - [ ] Back up any other important data to external drive or cloud
 
-### Clean GPU Driver Removal (Pre-Build)
-> ⚠️ **Disconnect from the internet before running DDU** — Windows Update will automatically push a generic driver in the window between DDU wiping the old one and you installing the new one. Stay offline until the new Radeon Software is fully installed.
-
-- [ ] **Disconnect from the internet** (unplug ethernet / disable Wi-Fi)
-- [ ] Boot into **Safe Mode**: Settings → Recovery → Advanced Startup → Troubleshoot → Advanced Options → Startup Settings → Restart → **F4**
-- [ ] Run DDU → *"Clean and restart"* for AMD/GPU
-- [ ] Windows reboots to generic Microsoft display driver — low-res display is expected and normal
-
 ---
 
 ## Build Day — Step 1: PSU Swap
@@ -75,7 +67,21 @@
 
 ---
 
-## Build Day — Step 2: GPU Swap
+## Build Day — Step 2: Clean GPU Driver Removal
+
+> ⚠️ **Disconnect from the internet before running DDU** — Windows Update will automatically push a generic driver in the window between DDU wiping the old one and you installing the new one. Stay offline until the new Radeon Software is fully installed.
+>
+> The system is still on the 5700XT at this point — full display works, so you can see everything clearly before wiping the drivers.
+
+- [ ] **Unplug ethernet cable** (or disable Wi-Fi)
+- [ ] Boot into **Safe Mode**: Settings → Recovery → Advanced Startup → Troubleshoot → Advanced Options → Startup Settings → Restart → **F4**
+- [ ] Run DDU → *"Clean and restart"* for AMD/GPU
+- [ ] Windows reboots to generic Microsoft display driver — low-res display is expected and normal
+- [ ] Shut down fully and flip PSU switch **OFF**
+
+---
+
+## Build Day — Step 3: GPU Swap
 
 ### Optional — Reapply Thermal Paste on CPU
 > ⚙️ **Only do this if you found the thermal compound.** Skip entirely if not.
@@ -102,7 +108,7 @@
 
 ---
 
-## Build Day — Step 3: BIOS
+## Build Day — Step 4: BIOS
 
 - [ ] Power on and enter BIOS — press **Delete** at POST screen
 - [ ] Confirm RAM is still at **2133 MT/s** — no action needed, just verify it hasn't reset
@@ -113,12 +119,11 @@
 
 ---
 
-## Build Day — Step 4: Drivers & Windows
+## Build Day — Step 5: Drivers & Windows
 
-> ⚠️ **Stay disconnected from the internet** until the new Radeon Software is fully installed.
+> ⚠️ **Stay disconnected from the internet** (ethernet still unplugged) until the new Radeon Software is fully installed.
 
 - [ ] Boot into Windows — generic display driver active, low-res is normal
-- [ ] Run **DDU** once more if you want an extra-clean slate (Safe Mode, same process as pre-build)
 - [ ] Install **AMD Radeon Software** from the locally saved installer
 - [ ] Reboot when prompted
 - [ ] **Reconnect to the internet**
